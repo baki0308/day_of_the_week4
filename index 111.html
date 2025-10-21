@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Дни недели</title>
+  <style>
+    button {
+    background-color: #0c2fe0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    }
+    button:hover  {
+    background-color: #0971c1c6;
+    }
+    body    {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1e90ff, #00bfff);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .day {
+      font-size: 2em;
+      font-weight: bold;
+      margin-top: 20px;
+      background: rgba(30, 10, 205, 0.664);
+      padding: 15px 30px;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+    .day.show {
+      transform: scale(1.1);
+      background: rgb(10, 56, 196);
+    }
+    .hint {
+      font-size: 1em;
+      opacity: 0.8;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  
+   <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+  <button> Моя кнопка </button>
+</a>
+
+  
+  <h1>Нажми цифру от 1 до 7</h1>
+  <div class="day" id="day"></div>
+  <div class="hint">(1 — Понедельник, 7 — Воскресенье)</div>
+
+  <script>
+    const dayBox = document.getElementById('day');
+    const days = [
+      "Понедельник, Monday, Дүйшөмбү",   
+      "Вторник, Tuesday, Шейшемби",    
+      "Среда, Wednesday, Шаршемби",  
+      "Четверг, Thursday, Бейшемби",    
+      "Пятница, Friday, Жума",    
+      "Суббота, Saturday, Ишемби",    
+      "Воскресенье, Sunday, Жекшемби"     
+    ];
+
+    document.addEventListener('keydown', (event) => {
+      const num = parseInt(event.key);
+      if (num >= 1 && num <= 7) {
+        dayBox.textContent = days[num - 1];
+        dayBox.classList.add('show');
+        setTimeout(() => dayBox.classList.remove('show'), 300);
+      } else {
+        dayBox.textContent = "Введите цифру от 1 до 7";
+      }
+    });
+
+    
+
+  </script>
+</body>
+</html>
+
